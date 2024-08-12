@@ -314,34 +314,3 @@ form.addEventListener("submit", (e) => {
     });
 });
 //  excel images
-
-document.addEventListener("DOMContentLoaded", function () {
-  const gallery = document.querySelector(".gallery");
-  const images = document.querySelectorAll(".gallery img");
-  const leftButton = document.querySelector(".left-button");
-  const rightButton = document.querySelector(".right-button");
-
-  let currentIndex = 0;
-  const imageWidth = images[0].clientWidth + 10; // Including margin
-
-  leftButton.addEventListener("click", () => {
-    if (currentIndex > 0) {
-      currentIndex--;
-      gallery.style.transform = `translateX(-${imageWidth * currentIndex}px)`;
-    }
-  });
-
-  rightButton.addEventListener("click", () => {
-    if (currentIndex < images.length - 1) {
-      currentIndex++;
-      gallery.style.transform = `translateX(-${imageWidth * currentIndex}px)`;
-    }
-  });
-
-  images.forEach((image, index) => {
-    image.addEventListener("click", () => {
-      gallery.style.transform = `translateX(-${imageWidth * index}px)`;
-      currentIndex = index;
-    });
-  });
-});
